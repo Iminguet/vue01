@@ -18,7 +18,7 @@ const app = Vue.createApp({
       if (randomNumber < 0.5) {
         return `Nombre: ${this.persona['nombre']}, <br/> Apellido: ${this.persona.apellido}`;
       } else {
-        return this.courseGoalB;
+        return `Nombre: ${this.persona['nombre']}, <br/> Apellido: ${this.persona.apellido}`;
       }
     },
   },
