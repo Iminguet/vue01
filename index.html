@@ -21,8 +21,12 @@
       <button v-on:click.middle="add()">Add {{num}}</button>
       <button v-on:click.right="remove()">Reduce {{num}}</button>
       <p>Result: {{ counter }}</p>
-      <input type="text" v-on:input="setName($event, 'Panocho')" />
-      <p>Your name: {{name}}</p>
+      <input
+        type="text"
+        v-on:input="setName($event, 'Panocho')"
+        v-on:keyup.enter="confirmInput"
+      />
+      <p>Your name: {{confirmedName}}</p>
 
       <form v-on:submit.prevent="submitForm">
         <input type="text" />
