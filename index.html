@@ -20,6 +20,8 @@
       <h2>Events in Action</h2>
       <button v-on:click.middle="add()">Add {{num}}</button>
       <button v-on:click.right="remove()">Reduce {{num}}</button>
+      <!-- Con v-once la directiva solo se evalua una vez -->
+      <p v-once>Result: {{ counter }}</p>
       <p>Result: {{ counter }}</p>
       <input
         type="text"
