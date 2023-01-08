@@ -18,22 +18,12 @@
     </header>
     <section id="events">
       <h2>Events in Action</h2>
-      <button v-on:click.middle="add()">Add {{num}}</button>
-      <button v-on:click.right="remove()">Reduce {{num}}</button>
-      <!-- Con v-once la directiva solo se evalua una vez -->
-      <p v-once>Result: {{ counter }}</p>
+      <button v-on:click="add(10)">Add 10</button>
+      <button v-on:click="reduce(5)">Subtract 5</button>
       <p>Result: {{ counter }}</p>
-      <input
-        type="text"
-        v-on:input="setName($event, 'Panocho')"
-        v-on:keyup.enter="confirmInput"
-      />
-      <p>Your name: {{confirmedName}}</p>
-
-      <form v-on:submit.prevent="submitForm">
-        <input type="text" />
-        <button>Sign up</button>
-      </form>
+      <input type="text" v-on:input="setName($event, 'Schwarzmüller')" />
+      <button>Reset Input</button>
+      <p>Your Name: {{ name }}</p>
     </section>
   </body>
 </html>
