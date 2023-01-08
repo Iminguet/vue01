@@ -2,17 +2,18 @@ const app = Vue.createApp({
   data() {
     return {
       counter: 0,
+      num: 5,
     };
   },
   methods: {
-    add() {
+    add(num) {
       if (this.counter < 20) {
-        this.counter++;
+        this.counter += this.num;
       }
     },
-    remove() {
+    remove(num) {
       if (this.counter > 0) {
-        this.counter--;
+        this.counter -= this.num;
       }
     },
   },
