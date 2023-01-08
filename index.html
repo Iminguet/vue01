@@ -21,8 +21,13 @@
       <button v-on:click="add()">Add {{num}}</button>
       <button v-on:click="remove()">Reduce {{num}}</button>
       <p>Result: {{ counter }}</p>
-      <input type="text" v-on:input="setName($event, 'Panochez')" />
+      <input type="text" v-on:input="setName($event, 'Panocho')" />
       <p>Your name: {{name}}</p>
+
+      <form v-on:submit="submitForm">
+        <input type="text" />
+        <button>Sign up</button>
+      </form>
     </section>
   </body>
 </html>
