@@ -26,8 +26,16 @@
       <ul v-else>
         <!-- in, ojo ahí, in, no of o for -->
         <!-- goal puede sustituirse por cualquier expresión, goal, antofagasto, lentejas, etc... -->
-        <li v-for="naranja in goals">{{naranja}}</li>
+        <li v-for="(naranja, index) in goals">{{index}}-{{naranja}}</li>
       </ul>
+      <!-- <ul>
+        <li v-for="num in 10">{{num}}</li>
+      </ul> -->
+      <!-- <ul>
+        <li v-for="(value, key, index) in {name:'Inra', age:40}">
+          {{index}}-{{key}}:{{value}}
+        </li>
+      </ul> -->
     </section>
   </body>
 </html>
