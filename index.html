@@ -23,9 +23,10 @@
       <p v-if:="goals.length===0">
         No goals have been added yet - please start adding some!
       </p>
-      <p>....</p>
-      <ul v-else-if>
-        <li>Goal</li>
+      <ul v-else>
+        <!-- in, ojo ahí, in, no of o for -->
+        <!-- goal puede sustituirse por cualquier expresión, goal, antofagasto, lentejas, etc... -->
+        <li v-for="naranja in goals">{{naranja}}</li>
       </ul>
     </section>
   </body>
