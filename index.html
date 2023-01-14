@@ -26,7 +26,9 @@
       <ul v-else>
         <!-- in, ojo ahí, in, no of o for -->
         <!-- goal puede sustituirse por cualquier expresión, goal, antofagasto, lentejas, etc... -->
-        <li v-for="(naranja, index) in goals">{{index}}-{{naranja}}</li>
+        <li v-for="(naranja, index) in goals" @click="removeGoal(index)">
+          {{index}}-{{naranja}}
+        </li>
       </ul>
 
       <!-- <ul>
