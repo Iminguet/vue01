@@ -14,65 +14,17 @@
   </head>
   <body>
     <header>
-      <h1>Monster Slayer</h1>
+      <h1>Vue Behind The Scenes</h1>
     </header>
-    <div id="game">
-      <section id="monster" class="container">
-        <h2>Monster Health</h2>
-        <div class="healthbar">
-          <div class="healthbar__value" :style="monsterBarStyles">
-            {{monsterHealth}}
-          </div>
-        </div>
-      </section>
-      <section id="player" class="container">
-        <h2>Your Health</h2>
-        <div class="healthbar">
-          <div class="healthbar__value" :style="playerBarStyles">
-            {{playerHealth}}
-          </div>
-        </div>
-      </section>
-      <section class="container" v-if="winner">
-        <h2>Game Over!</h2>
-        <h3 v-if="winner==='player'">You Won</h3>
-        <h3 v-else-if="winner==='monster'">You Lost</h3>
-        <h3 v-else="winner==='draw'">Its a Draw!</h3>
-      </section>
-
-      <section id="controls" v-else>
-        <button @click="attackMonster">ATTACK</button>
-        <button :disabled="mayUseSpecialAttack" @click="specialAttackMonster">
-          SPECIAL ATTACK
-        </button>
-        <button @click="healthPlayer">HEAL</button>
-        <button @click="surrender">SURRENDER</button>
-      </section>
-      <section class="container" v-if="restartButtonStatus">
-        <button @click="restartGame">RESTART</button>
-      </section>
-
-      <section id="log" class="container">
-        <h2>Battle Log</h2>
-        <ul>
-          <li v-for="logMessage in logMessages">
-            <span
-              :class="{'log--player': logMessage.actionBy==='player', 'log--monster' :logMessage.actionBy==='monster' }"
-            >
-              {{logMessage.actionBy==='player'? 'Player': 'Monster'}}
-            </span>
-
-            <span v-if="logMessage.actionType==='heal'">
-              heals himself for a
-              <span class="log--heal">{{logMessage.actionValue}}</span>
-            </span>
-            <span v-else>
-              attacks and deals
-              <span class="log--damage"> {{logMessage.actionValue}}</span>
-            </span>
-          </li>
-        </ul>
-      </section>
-    </div>
+    <section id="app">
+      <h2>How Vue Works</h2>
+      <input type="text" ref="userText">
+      <button @click="setText">Set Text</button>
+      <p>{{ message }}</p>
+    </section>
+    <section id="app2">
+      <!-- DOES NOT WORK: <p>{{ message }}</p> -->
+      
+    </section>
   </body>
 </html>
