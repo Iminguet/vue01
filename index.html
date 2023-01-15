@@ -14,36 +14,31 @@
   </head>
   <body>
     <header>
-      <h1>Vue Course Goals</h1>
+      <h1>Monster Slayer</h1>
     </header>
-    <section id="user-goals">
-      <h2>My course goals</h2>
-      <input type="text" v-model="enteredGoalValue" />
-      <button @click="addGoal">Add Goal</button>
-      <p v-if:="goals.length===0">
-        No goals have been added yet - please start adding some!
-      </p>
-      <ul v-else>
-        <!-- in, ojo ahí, in, no of o for -->
-        <!-- goal puede sustituirse por cualquier expresión, goal, antofagasto, lentejas, etc... -->
-        <li
-          v-for="(naranja, index) in goals"
-          :key="naranja"
-          @click="removeGoal(index)"
-        >
-          <p>{{index}}-{{naranja}}</p>
-          <input type="text" @click.stop />
-        </li>
-      </ul>
-
-      <!-- <ul>
-        <li v-for="num in 10">{{num}}</li>
-      </ul> -->
-      <!-- <ul>
-        <li v-for="(value, key, index) in {name:'Inra', age:40}">
-          {{index}}-{{key}}:{{value}}
-        </li>
-      </ul> -->
-    </section>
+    <div id="game">
+      <section id="monster" class="container">
+        <h2>Monster Health</h2>
+        <div class="healthbar">
+          <div class="healthbar__value"></div>
+        </div>
+      </section>
+      <section id="player" class="container">
+        <h2>Your Health</h2>
+        <div class="healthbar">
+          <div class="healthbar__value"></div>
+        </div>
+      </section>
+      <section id="controls">
+        <button>ATTACK</button>
+        <button>SPECIAL ATTACK</button>
+        <button>HEAL</button>
+        <button>SURRENDER</button>
+      </section>
+      <section id="log" class="container">
+        <h2>Battle Log</h2>
+        <ul></ul>
+      </section>
+    </div>
   </body>
 </html>
