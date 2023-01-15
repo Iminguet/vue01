@@ -11,6 +11,7 @@ const app = Vue.createApp({
       potions: 2,
       winner: null,
       restartButtonStatus: null,
+      logMessages: [],
     };
   },
 
@@ -68,11 +69,13 @@ const app = Vue.createApp({
       this.currentRound++;
       const attackValue = getRandomValue(12, 5);
       this.monsterHealth -= attackValue;
+      this.addLogMessage('player', 'attack', attackValue);
       this.attackPlayer();
     },
 
     attackPlayer() {
       const attackValue = getRandomValue(15, 8);
+      this.addLogMessage('monster', 'attack', attackValue);
       this.playerHealth -= attackValue;
     },
 
@@ -80,6 +83,7 @@ const app = Vue.createApp({
       this.currentRound++;
       const attackValue = getRandomValue(25, 10);
       this.monsterHealth -= attackValue;
+      this.addLogMessage('player', 'attack', attackValue);
       this.attackPlayer();
     },
 
@@ -92,6 +96,7 @@ const app = Vue.createApp({
         } else {
           this.playerHealth += healValue;
         }
+        this.addLogMessage('player', 'heal', healValue);
         this.potions--;
         this.currentRound++;
         this.attackPlayer();
@@ -104,12 +109,21 @@ const app = Vue.createApp({
         (this.currentRound = 1),
         (this.potions = 2),
         (this.winner = null),
-        (this.buttonStatusDuringGame = true);
-      this.restartButtonStatus = null;
+        (this.buttonStatusDuringGame = true),
+        (this.restartButtonStatus = null),
+        (this.logMessages = []);
     },
     surrender() {
       this.winner = 'monster';
       this.restartButtonStatus = true;
+    },
+
+    addLogMessage(who, what, value) {
+      this.logMessages.unshift({
+        actionBy: who,
+        actionType: what,
+        actionValue: value,
+      });
     },
   },
 });
