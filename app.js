@@ -10,7 +10,6 @@ const app = Vue.createApp({
       currentRound: 1,
       potions: 2,
       winner: null,
-      buttonStatusDuringGame: true,
       restartButtonStatus: null,
     };
   },
@@ -39,12 +38,12 @@ const app = Vue.createApp({
       if (value <= 0 && this.monsterHealth <= 0) {
         // a draw
         this.winner = 'draw';
-        this.buttonStatusDuringGame = false;
+
         this.restartButtonStatus = true;
       } else if (value <= 0) {
         //player lost
         this.winner = 'monster';
-        this.buttonStatusDuringGame = false;
+
         this.restartButtonStatus = true;
       }
     },
@@ -52,12 +51,12 @@ const app = Vue.createApp({
       if (value <= 0 && this.playerHealth <= 0) {
         //draw
         this.winner = 'draw';
-        this.buttonStatusDuringGame = false;
+
         this.restartButtonStatus = true;
       } else if (value <= 0) {
         // moster lost
         this.winner = 'player';
-        this.buttonStatusDuringGame = false;
+
         this.restartButtonStatus = true;
       }
     },
